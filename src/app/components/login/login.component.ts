@@ -12,9 +12,10 @@ import { TokenService } from 'src/app/services/token.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   public error = null;
-  constructor(private formBuilder: FormBuilder,
-              private jarwisService: JarwisService,
-              private tokenService: TokenService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private jarwisService: JarwisService,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

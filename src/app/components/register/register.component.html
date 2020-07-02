@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="col-md-5 col-sm-10 col-xs-12 mt-4 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h3>Register</h3>
+    </div>
+    <div class="card-bod p-5">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" [ngClass]="{ 'was-validated': registerForm.valid }">
+
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-2">Name</label>
+          <div class="col-10">
+            <input type="name" class="form-control" formControlName="name" [ngClass]="{ 'is-invalid' : registerForm.get('name').touched && f.name.errors } ||
+            { 'is-invalid' : registerForm.get('name').touched && !f.name.errors }">
+            <div class="invalid-feedback" *ngIf="f.name.errors && registerForm.get('name').touched">
+              <span *ngIf="f.name.errors.required">Name is required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-2">Email</label>
+          <div class="col-10">
+            <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid' : registerForm.get('email').touched && f.email.errors } ||
+            { 'is-invalid' : registerForm.get('email').touched && !f.email.errors }">
+            <div class="invalid-feedback" *ngIf="f.email.errors && registerForm.get('email').touched">
+              <span *ngIf="f.email.errors.required">Email is required</span>
+              <span *ngIf="f.email.errors.email">Email invalidate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="password" class="col-2 col-form-label">Password</label>
+          <div class="col-10">
+            <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': f.password.errors && registerForm.get('password').touched } ||
+            { 'is-valid': !f.password.errors && registerForm.get('password').touched }">
+            <div class="invalid-feedback" *ngIf="f.password.errors && registerForm.get('password').touched">
+              <span *ngIf="f.password.errors.required">Password is required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="pwdConfirm" class="col-2 col-form-label">Password Confirm</label>
+          <div class="col-10">
+            <input type="password" class="form-control" formControlName="pwdConfirm" [ngClass]="{ 'is-invalid': f.password.errors && registerForm.get('password').touched } ||
+            { 'is-valid': !f.password.errors && registerForm.get('password').touched }">
+            <div class="invalid-feedback" *ngIf="f.password.errors && registerForm.get('password').touched">
+              <span *ngIf="f.password.errors.required">Password is required</span>
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" value="Login" [disabled]="registerForm.invalid" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>
