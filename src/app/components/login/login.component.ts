@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
 import { JarwisService } from './../../services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private jarwisService: JarwisService,
     private tokenService: TokenService,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -40,6 +42,7 @@ export class LoginComponent implements OnInit {
 
   handleResponse(data) {
     this.tokenService.handle(data.access_token);
+    this.authService.changeAuthStatus(true);
     this.router.navigateByUrl('/home');
   }
 
