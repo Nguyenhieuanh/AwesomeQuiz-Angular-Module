@@ -10,6 +10,7 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomeComponent } from './components/home/home.component';
     RequestResetComponent,
     ResponseResetComponent,
     HomeComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
