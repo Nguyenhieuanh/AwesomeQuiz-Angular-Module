@@ -15,6 +15,6 @@ export class JarwisService {
   }
 
   register(data) {
-    return this.http.post(`${this.baseUrl}/login`, data);
+    return this.http.post(`${this.baseUrl}/register`, data);
   }
 }

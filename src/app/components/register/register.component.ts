@@ -1,6 +1,9 @@
+import { TokenService } from 'src/app/services/token.service';
+import { JarwisService } from './../../services/jarwis.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MustMatch } from '../../_helpers/must-match.validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +13,13 @@ import { MustMatch } from '../../_helpers/must-match.validator';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
+  public error = [];
+
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private jarwisService: JarwisService,
+    private tokenService: TokenService,
+    private router: Router
   ) { }
 
   get f() {
@@ -23,13 +31,25 @@ export class RegisterComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      pwdConfirm: ['', Validators.required]
+      password_confirmation: ['', Validators.required]
     }, {
-      validator: MustMatch('password', 'pwdConfirm')
+      validator: MustMatch('password', 'password_confirmation')
     });
   }
 
   onSubmit() {
-    console.log(this.registerForm);
+    console.log(this.registerForm.value);
+    this.jarwisService.register(this.registerForm.value).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    );
+  }
+  handleResponse(data) {
+    this.tokenService.handle(data.access_token);
+    // this.router.navigateByUrl('/profile');
+  }
+
+  handleError(error) {
+    this.error = error.error.errors;
   }
 }

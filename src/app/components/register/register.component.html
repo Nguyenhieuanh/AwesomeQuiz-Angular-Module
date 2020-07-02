@@ -41,13 +41,14 @@
         </div>
 
         <div class="form-group row">
-          <label for="pwdConfirm" class="col-2 col-form-label">Password Confirm</label>
+          <label for="password_confirmation" class="col-2 col-form-label">Password Confirm</label>
           <div class="col-10">
-            <input type="password" class="form-control" formControlName="pwdConfirm" [ngClass]="{ 'is-invalid': f.pwdConfirm.errors && registerForm.get('pwdConfirm').touched } ||
-            { 'is-valid': !f.pwdConfirm.errors && registerForm.get('pwdConfirm').touched }">
-            <div class="invalid-feedback" *ngIf="f.pwdConfirm.errors && registerForm.get('pwdConfirm').touched">
-              <span *ngIf="f.pwdConfirm.errors.required">Password confirm is required</span>
-              <span *ngIf="f.pwdConfirm.errors.mustMatch">Passwords must match</span>
+            <input type="password" class="form-control" formControlName="password_confirmation" [ngClass]="{ 'is-invalid': f.password_confirmation.errors && registerForm.get('password_confirmation').touched } ||
+            { 'is-valid': !f.password_confirmation.errors && registerForm.get('password_confirmation').touched }">
+            <div class="invalid-feedback"
+              *ngIf="f.password_confirmation.errors && registerForm.get('password_confirmation').touched">
+              <span *ngIf="f.password_confirmation.errors.required">Password confirm is required</span>
+              <span *ngIf="f.password_confirmation.errors.mustMatch">Passwords must match</span>
             </div>
           </div>
         </div>
