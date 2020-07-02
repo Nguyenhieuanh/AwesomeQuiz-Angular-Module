@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
     this.jarwisService.register(this.registerForm.value).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
