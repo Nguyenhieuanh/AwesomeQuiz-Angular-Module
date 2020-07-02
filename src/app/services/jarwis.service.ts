@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JarwisService {
-  private baseUrl: 'http://awesomequiz.com/api';
+  private baseUrl = 'http://awesomequiz.test/api';
 
   constructor(private http: HttpClient) { }
 
