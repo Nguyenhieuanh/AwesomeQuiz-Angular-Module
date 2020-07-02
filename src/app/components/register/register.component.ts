@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
     this.jarwisService.register(this.registerForm.value).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
@@ -46,7 +45,7 @@ export class RegisterComponent implements OnInit {
   }
   handleResponse(data) {
     this.tokenService.handle(data.access_token);
-    // this.router.navigateByUrl('/profile');
+    this.router.navigateByUrl('/home');
   }
 
   handleError(error) {

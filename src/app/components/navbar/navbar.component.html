@@ -14,7 +14,8 @@
         <a class="nav-link" *ngIf="!loggedIn" routerLink="register">Register <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="loggedIn" routerLink="logout">Logout <span class="sr-only">(current)</span></a>
+        <a class="nav-link" *ngIf="loggedIn" href="logout" (click)="logout($event)">Logout <span
+            class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
