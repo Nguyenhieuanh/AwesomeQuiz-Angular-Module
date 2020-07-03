@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
     this.jarwisService.login(this.loginForm.value).subscribe(
       res => this.handleResponse(res),
       error => this.handleError(error)

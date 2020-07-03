@@ -53,7 +53,6 @@ export class RegisterComponent implements OnInit {
   handleResponse(data) {
     this.tokenService.handle(data.access_token);
     this.authService.changeAuthStatus(true);
-    // console.log(this.authService.authStatus);
     this.router.navigateByUrl('/home');
   }
 
