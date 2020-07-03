@@ -1,10 +1,10 @@
-import { AuthService } from './../../services/auth.service';
-import { TokenService } from 'src/app/services/token.service';
-import { JarwisService } from '../../services/jarwis.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { MustMatch } from '../../_helpers/must-match.validator';
-import { Router } from '@angular/router';
+import {AuthService} from './../../services/auth.service';
+import {TokenService} from 'src/app/services/token.service';
+import {JarwisService} from '../../services/jarwis.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {MustMatch} from '../../_helpers/must-match.validator';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +26,8 @@ export class RegisterComponent implements OnInit {
     private tokenService: TokenService,
     private router: Router,
     private authService: AuthService
-  ) { }
+  ) {
+  }
 
   get f() {
     return this.registerForm.controls;

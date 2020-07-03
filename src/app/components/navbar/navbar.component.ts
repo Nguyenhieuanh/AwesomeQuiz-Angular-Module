@@ -1,7 +1,7 @@
-import { TokenService } from 'src/app/services/token.service';
-import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import {TokenService} from 'src/app/services/token.service';
+import {Router} from '@angular/router';
+import {AuthService} from './../../services/auth.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private tokenService: TokenService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.authService.authStatus.subscribe(value => this.loggedIn = value);

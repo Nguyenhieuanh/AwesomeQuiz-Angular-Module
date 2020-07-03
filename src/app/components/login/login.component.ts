@@ -1,10 +1,9 @@
-import { AuthService } from './../../services/auth.service';
-import { Router } from '@angular/router';
-import { JarwisService } from './../../services/jarwis.service';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
-import { TokenService } from 'src/app/services/token.service';
+import {AuthService} from './../../services/auth.service';
+import {Router} from '@angular/router';
+import {JarwisService} from './../../services/jarwis.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {TokenService} from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -14,22 +13,24 @@ import { TokenService } from 'src/app/services/token.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   public error = null;
+
   constructor(
     private formBuilder: FormBuilder,
     private jarwisService: JarwisService,
     private tokenService: TokenService,
     private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService) {
+  }
+
+  get f() {
+    return this.loginForm.controls;
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
-  }
-
-  get f() {
-    return this.loginForm.controls;
   }
 
   onSubmit() {

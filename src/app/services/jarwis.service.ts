@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +7,8 @@ import { Observable } from 'rxjs';
 export class JarwisService {
   private baseUrl = 'http://localhost:8000/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data);
@@ -17,7 +17,8 @@ export class JarwisService {
   register(data) {
     return this.http.post(`${this.baseUrl}/register`, data);
   }
+
   category(data) {
-    return this.http.post(`${this.baseUrl}/category`,data);
+    return this.http.post(`${this.baseUrl}/category`, data);
   }
 }
