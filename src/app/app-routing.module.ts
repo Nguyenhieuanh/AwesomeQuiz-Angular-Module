@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {CategoryComponent} from "./components/category/category.component";
 
 
 const routes: Routes = [
@@ -22,6 +23,12 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AfterLoginService]
+
+  },
+  {
+    path: 'category',
+    component: CategoryComponent,
+    canActivate: [BeforeLoginService] //change back to "after" when done
 
   }
 ];

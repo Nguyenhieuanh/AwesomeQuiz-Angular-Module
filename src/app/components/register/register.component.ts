@@ -1,5 +1,5 @@
 import { TokenService } from 'src/app/services/token.service';
-import { JarwisService } from './../../services/jarwis.service';
+import { JarwisService } from '../../services/jarwis.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MustMatch } from '../../_helpers/must-match.validator';
