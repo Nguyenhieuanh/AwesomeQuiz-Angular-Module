@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CategoryComponent } from './components/category/category.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CategoryComponent } from './components/category/category.component';
     HomeComponent,
     NavbarComponent,
     CategoryComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

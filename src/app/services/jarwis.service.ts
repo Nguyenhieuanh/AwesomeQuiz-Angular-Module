@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JarwisService {
-  private baseUrl = 'http://awesomequiz.test/api';
+  private baseUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 

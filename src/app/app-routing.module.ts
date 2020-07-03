@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'category',
     component: CategoryComponent,
-    canActivate: [BeforeLoginService] //change back to "after" when done
+    canActivate: [AfterLoginService]
 
   }
 ];

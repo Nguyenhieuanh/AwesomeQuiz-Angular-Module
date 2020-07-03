@@ -1,9 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<!-- Navbar -->
+<nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+
+  <!-- Toggle sidebar -->
+  <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+    <span class="material-icons">menu</span>
   </button>
+
+  <!-- Brand -->
+  <a href="instructor-dashboard.html" class="navbar-brand"><i class="material-icons">school</i> AwesomeQuiz</a>
+
+  <ul class="nav navbar-nav d-none d-md-flex">
+    <li class="nav-item">
+      <div class="nav-stats"></div>
+    </li>
+    <li class="nav-item">
+      <div class="nav-stats"></div>
+    </li>
+    <li class="nav-item">
+      <div class="nav-stats"></div>
+    </li>
+  </ul>
+
+  <div class="navbar-spacer"></div>
+
+  <!-- Menu -->
+  <ul class="nav navbar-nav d-none d-md-flex">
+    <li class="nav-item">
+      <a class="nav-link" href="instructor-forum.html"></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="instructor-help-center.html"></a>
+    </li>
+  </ul>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-3 ml-auto">
@@ -14,9 +42,15 @@
         <a class="nav-link" *ngIf="!loggedIn" routerLink="register">Register <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" *ngIf="loggedIn" routerLink="category">Category<span
+          class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" *ngIf="loggedIn" href="logout" (click)="logout($event)">Logout <span
-            class="sr-only">(current)</span></a>
+          class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
 </nav>
+<!-- // END Navbar -->
+
