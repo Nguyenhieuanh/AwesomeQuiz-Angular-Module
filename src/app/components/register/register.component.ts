@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import { JarwisService } from './../../services/jarwis.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -13,13 +14,18 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  public error = [];
+  public error = {
+    name: '',
+    email: '',
+    password: '',
+  };
 
   constructor(
     private formBuilder: FormBuilder,
     private jarwisService: JarwisService,
     private tokenService: TokenService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   get f() {
@@ -43,8 +49,11 @@ export class RegisterComponent implements OnInit {
       error => this.handleError(error)
     );
   }
+
   handleResponse(data) {
     this.tokenService.handle(data.access_token);
+    this.authService.changeAuthStatus(true);
+    // console.log(this.authService.authStatus);
     this.router.navigateByUrl('/home');
   }
 
